@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trail Info</title>
+
+    <style>
+
+      body{
+        font-family:Arial, sans-serif;
+        margin:0;
+        background:#e8f7ea; /* very light green */
+      }
+
+      /* HEADER */
+
+      header{
+        background:#2e8b57;
+        color:white;
+        text-align:center;
+        padding:20px;
+        box-shadow:0 3px 6px rgba(0,0,0,.2);
+      }
+
+      /* HOME BUTTON */
+
+      .home-btn{
+        position:absolute;
+        top:15px;
+        left:15px;
+        background:rgba(0,0,0,.6);
+        color:white;
+        padding:10px 15px;
+        border-radius:8px;
+        text-decoration:none;
+      }
+
+      .home-btn:hover{
+        background:black;
+      }
+
+      /* MAIN CONTAINER */
+
+      .container{
+        max-width:900px;
+        margin:30px auto;
+        padding:30px;
+        background:white;
+        border-radius:10px;
+        box-shadow:0 6px 12px rgba(0,0,0,.15);
+      }
+
+      /* TRAIL TITLE */
+
+      .trail-name{
+        font-size:2.5em;
+        font-weight:bold;
+        color:#2e8b57;
+        margin-bottom:20px;
+      }
+
+      /* TRAIL STATS */
+
+      .trail-stats{
+        margin-bottom:30px;
+      }
+
+      .trail-stats table{
+        width:100%;
+        border-collapse:collapse;
+      }
+
+      .trail-stats th,
+      .trail-stats td{
+        padding:12px;
+        border-bottom:1px solid #ddd;
+      }
+
+      .trail-stats th{
+        text-align:left;
+        background:#f3f3f3;
+      }
+
+      /* DESCRIPTION */
+
+      .trail-description{
+        margin-bottom:30px;
+        line-height:1.6;
+      }
+
+      /* BUTTONS */
+
+      .buttons{
+        display:flex;
+        gap:20px;
+        flex-wrap:wrap;
+        margin-top:20px;
+      }
+
+      .btn{
+        padding:12px 22px;
+        border-radius:8px;
+        text-decoration:none;
+        color:white;
+        font-weight:bold;
+        transition:transform .2s;
+        box-shadow:0 4px 6px rgba(0,0,0,.2);
+      }
+
+      .btn:hover{
+        transform:scale(1.05);
+      }
+
+      /* BUTTON COLORS */
+
+      .video-btn{
+        background:#e63946;
+      }
+
+      .video-btn:hover{
+        background:#b61d29;
+      }
+
+      .link-btn{
+        background:#0077cc;
+      }
+
+      .link-btn:hover{
+        background:#005fa3;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <a class="home-btn" href="index.html">🏠 Home</a>
+
+    <header>
+      <h1>Trail Info</h1>
+    </header>
+
+    <div class="container">
+
+      <div class="trail-name">
+        🟢 Asteroid
+      </div>
+
+      <div class="trail-stats">
+
+        <h2>Trail Stats</h2>
+
+        <table>
+
+          <tr>
+            <th>Distance</th>
+            <td id="trail-distance">0.1 mi</td>
+          </tr>
+
+          <tr>
+            <th>Elevation Loss</th>
+            <td id="trail-elevation">10 ft</td>
+          </tr>
+
+          <tr>
+            <th>Difficulty</th>
+            <td id="trail-difficulty">🟢 Beginner</td>
+          </tr>
+
+          <tr>
+            <th>Style</th>
+            <td id="trail-location">XC </td>
+          </tr>
+
+        </table>
+
+      </div>
+
+      <div class="trail-description">
+
+        <h2>Description</h2>
+
+        <p id="trail-description">
+          Asteroid is a short, smooth connection from Rusted Rake over to Air Raid Rd. 
+          The trail also provides easy access to the freeride area.
+        </p>
+
+      </div>
+
+      <div class="buttons">
+
+        <a class="btn video-btn" href="soon.html">
+          🎥 Trail Video (Coming Soon)
+        </a>
+
+        <a class="btn link-btn"
+           href="https://www.trailforks.com/trails/asteroid-828332/"
+           target="_blank">
+
+          📷 Trailforks Info / Photos
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
