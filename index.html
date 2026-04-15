@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patuxent River Valley Trails</title>
+
+    <style>
+
+      body{
+        margin:0;
+        font-family:Arial,sans-serif;
+        background:#f0f8ff;
+        text-align:center;
+      }
+
+      header{
+        position:relative;
+        color:white;
+      }
+
+      .hero-image{
+        background-image:url('Bronson.JPG');
+        background-size:cover;
+        background-position:center;
+        height:50vh;
+        border:5px solid black;
+        border-radius:5px;
+      }
+
+      .hero-title{
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        font-size:5vw;
+        text-shadow:2px 2px 6px rgba(0,0,0,0.8);
+      }
+
+      .key{
+        margin:15px auto;
+        display:flex;
+        justify-content:center;
+        gap:20px;
+        flex-wrap:wrap;
+        font-size:1em;
+      }
+
+      nav{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+        gap:12px;
+        padding:20px;
+        max-width:900px;
+        margin:auto;
+      }
+
+      .trail-button{
+        background:#2e8b57;
+        color:white;
+        padding:12px;
+        border-radius:8px;
+        text-decoration:none;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        transition:transform .2s, background .2s;
+        box-shadow:0 4px 6px rgba(0,0,0,0.2);
+      }
+
+      .trail-button:hover{
+        transform:scale(1.05);
+        background:#3ca56c;
+      }
+
+      .info-bar{
+        background:#d4f8d4;
+        padding:6px;
+        font-size:.9em;
+      }
+
+      .picker{
+        margin:20px;
+      }
+
+      .picker button{
+        margin-left:10px;
+        padding:6px 12px;
+      }
+
+      #output{
+        margin-top:10px;
+        font-weight:bold;
+      }
+
+      footer{
+        background:#e0e0e0;
+        border:5px solid #333;
+        border-radius:5px;
+        padding:20px;
+        margin:0;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="hero-image">
+        <div class="hero-title">Patuxent River Valley Trails</div>
+      </div>
+    </header>
+
+    <div class="info-bar">Trail Info ↓ (Click to learn more.)</div>
+
+    <!-- Trail Picker -->
+    <div class="picker">
+      <h2>Find a Trail</h2>
+
+      <select id="difficulty">
+        <option value="🟢">Beginner</option>
+        <option value="🔵">Intermediate</option>
+        <option value="⚫">Advanced</option>
+        <option value="⚫⚫">Expert</option>
+      </select>
+
+      <button onclick="handleClick()">Search</button>
+
+      <p id="output"></p>
+    </div>
+
+    <nav>
+
+      <a class="trail-button" href="rustedrake.html">
+        <span>🔵 Rusted Rake</span><span>✅</span>
+      </a>
+
+      <a class="trail-button" href="SJ.html">
+        <span>⚫ Signal Jammer</span><span>✅</span>
+      </a>
+
+      <a class="trail-button" href="LL.html">
+        <span>🔵 Loam Lane</span><span>✅</span>
+      </a>
+
+      <a class="trail-button" href="Rhodo.html">
+        <span>🔵 Rhodo</span><span>✅</span>
+      </a>
+
+      <a class="trail-button" href="FB.html">
+        <span>🔵 Fish Brick</span><span>✅</span>
+      </a>
+
+      <a class="trail-button" href="BA.html">
+        <span>🔵 Broken Arrow</span><span>✅</span>
+      </a>
+
+      <a class="trail-button" href="Asteroid.html">
+        <span>🟢 Asteroid</span><span>✅</span>
+      </a>
+
+      <a class="trail-button" href="FR.html">
+        <span>⚫⚫ Freeride Lines</span><span>⚠️</span>
+      </a>
+
+      <a class="trail-button" href="NN.html">
+        <span>⚫⚫ Narnia</span><span>✅</span>
+      </a>
+
+      <a class="trail-button" href="CH.html">
+        <span>🟢 Coyote Hollow</span><span>✅</span>
+      </a>
+
+    </nav>
+
+    <footer>
+      <p>
+        The PRV has a bunch of trails mainly for mountain biking.
+        We are always working on improving them.
+      </p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+
+      // list of trails
+      let trails = [
+        {name: "Rusted Rake", difficulty: "🔵"},
+        {name: "Signal Jammer", difficulty: "⚫"},
+        {name: "Loam Lane", difficulty: "🔵"},
+        {name: "Rhodo", difficulty: "🔵"},
+        {name: "Fish Brick", difficulty: "🔵"},
+        {name: "Broken Arrow", difficulty: "🔵"},
+        {name: "Asteroid", difficulty: "🟢"},
+        {name: "Freeride Lines", difficulty: "⚫⚫"},
+        {name: "Narnia", difficulty: "⚫⚫"},
+        {name: "Coyote Hollow", difficulty: "🟢"}
+      ];
+
+      // function to find matching trails
+      function findTrails(diff) {
+        let result = "";
+
+        for (let i = 0; i < trails.length; i++) {
+          if (trails[i].difficulty === diff) {
+            result += trails[i].name + "<br>";
+          }
+        }
+
+        return result;
+      }
+
+      // runs when button is clicked
+      function handleClick() {
+        let selected = document.getElementById("difficulty").value;
+
+        let answer = findTrails(selected);
+
+        document.getElementById("output").innerHTML = answer;
+      }
+
+    </script>
+
+  </body>
+</html>
